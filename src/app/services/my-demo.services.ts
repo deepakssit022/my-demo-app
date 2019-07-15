@@ -22,7 +22,7 @@ export class MyDemoService {
             headers: httpHeaders
         };
         return this.http.post<any>(
-            environment.apiBaseUrlServer + "/user/login",
+            environment.apiBaseUrlServer + "/admin/adminLogin",
             { email: email, password: password },
             options
         );

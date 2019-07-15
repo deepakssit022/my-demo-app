@@ -18,3 +18,23 @@ height: 100vh;
   .no_left_margin {
       margin-left: 0px;
   }
+
+  md-card{
+    width: 20em;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.error {
+  color: red;
+}
+.error-msg {
+  display: block;
+  position: absolute;
+  font-size: 75%;
+  bottom: -2em;
+}
+.mat-input-container {
+  margin-bottom: .5em;
+}

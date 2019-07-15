@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyDemoService } from "../../services/my-demo.services";
+import {MatDialogModule} from '@angular/material/dialog';
 
 const routes: Routes = [
 
@@ -25,7 +26,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [MyDemoService]
 })

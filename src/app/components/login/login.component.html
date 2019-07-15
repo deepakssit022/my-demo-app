@@ -1,16 +1,30 @@
 <div class="row screen_centre">
   <div class="col-md-6 offset-md-3">
     <h4>Login</h4>
-    <form formGroupName="loginForm" (ngSubmit)="loginFunction()">
+    <form [formGroup]="loginForm" (ngSubmit)="loginFunction()"
+      [ngClass]="{'error': loginForm.controls['email'].errors && !loginForm.controls['email'].pristine}">
       <mat-form-field type="number" class="example-full-width">
         <input matInput placeholder="Email" formControlName="email">
+        <div *ngIf="loginForm.controls['email'].errors && !loginForm.controls['email'].pristine" class="error-msg">
+          <div [hidden]="!loginForm.controls['email'].errors.required">Email is required.</div>
+          <div [hidden]="!loginForm.controls['email'].errors.patternInvalid">Email is invalid.</div>
+        </div>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Password" formControlName="password">
+        <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine"
+          class="error-msg">
+          <div [hidden]="!loginForm.controls['password'].errors.required">Password is required.</div>
+        </div>
       </mat-form-field>
+
+      <div *ngIf="showIncorrectLoginMsg" >
+        {{loginApiErrorMsg}}
+      </div>
+
       <mat-checkbox>Remember me !</mat-checkbox>
       <div class="row no_left_margin">
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" [disabled]="loginForm.invalid">Submit</button>
       </div>
     </form>
     Not a member <a>Sign Up!</a>
