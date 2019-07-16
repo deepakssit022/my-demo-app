@@ -46,9 +46,9 @@
             <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="action">
+        <ng-container matColumnDef="action" >
             <th mat-header-cell *matHeaderCellDef> Action </th>
-            <td mat-cell *matCellDef="let element"> <i class="material-icons">view_module</i></td>
+            <td mat-cell *matCellDef="let element" (click)="newMessage(element)"> <i class="material-icons">view_module</i></td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { DataService } from "../../services/data.services";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,7 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  message: any;
   userData: any = [
     {
       "picture": "http://placehold.it/32x32",
@@ -496,15 +498,21 @@ export class HomeComponent implements OnInit {
     }
   ]
 
-  constructor() { }
-
+  constructor(private data: DataService, private router: Router) { }
 
   displayedColumns: string[] = ['picture', 'age', 'eyeColor', 'name', 'gender', 'company', 'email', 'phone', 'action'];
   dataSource = new MatTableDataSource(this.userData);
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+    this.data.currentMessage.subscribe(message => this.message = message)
   }
+
+  newMessage(selectedUser) {
+    this.data.changeMessage(selectedUser)
+    this.router.navigate(['/user']);
+  }
+
 }

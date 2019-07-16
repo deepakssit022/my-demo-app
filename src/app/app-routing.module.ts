@@ -10,6 +10,10 @@ const routes: Routes = [
         path: 'login',
         loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
     },
+    {
+        path: 'user',
+        loadChildren: () => import('./components/user/user.module').then(m => m.UserModule)
+    },
     { path: '**', redirectTo: '' }
 ];
 

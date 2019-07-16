@@ -3,7 +3,7 @@ import { MyDemoService } from '../../services/my-demo.services';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { patternValidator } from '../../shared/pattern-validator';
 import { Router } from "@angular/router";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-login',
@@ -13,6 +13,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export class LoginComponent implements OnInit {
   showIncorrectLoginMsg: boolean = false;
   loginApiErrorMsg :any;
+  
   constructor(private myDemoService: MyDemoService, private router: Router) { }
 
   ngOnInit() {

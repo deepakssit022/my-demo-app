@@ -1,0 +1,36 @@
+
+<div mat-dialog-content>
+    <p>Edit</p>
+    <mat-card-content>
+            <table style="width:100%">
+                <tr>
+                    <th>Age:</th>
+                    <td>{{data.age}}</td>
+                </tr>
+                <tr>
+                    <th>Company:</th>
+                    <td>{{data.company}}</td>
+                </tr>
+                <tr>
+                    <th>Eeye Color:</th>
+                    <td>{{data.eyeColor}}</td>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <td>{{data.gender}}</td>
+                </tr>
+                <tr>
+                    <th>phone:</th>
+                    <td>{{data.phone}}</td>
+                </tr>
+                <tr>
+                    <th>Address:</th>
+                    <td>{{data.address}}</td>
+                </tr>
+            </table>
+        </mat-card-content>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button  (click)="onNoClick()" cdkFocusInitial>Ok</button> 
+</div>
